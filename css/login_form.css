@@ -11,7 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("./477e16293f9ee3e6b5e191918937488d.jpg") fixed no-repeat;
+  background: url("../static/477e16293f9ee3e6b5e191918937488d.jpg") fixed no-repeat;
   background-size: cover;
 }
 
