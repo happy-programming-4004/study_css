@@ -1,0 +1,86 @@
+html,
+body {
+  margin: 0;
+}
+*{
+  box-sizing: border-box;
+}
+html {
+  /* 隐藏最外层滚动条使视差生效 */
+  overflow: hidden;
+}
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+  /* 开启3D空间，数值越小效果越明显 */
+  perspective: 1px;
+  /* 在3D空间进行transform */
+  transform-style: preserve-3d;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  transform-style: inherit;
+}
+header h1 {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 1em 4em;
+  font-size: 3em;
+}
+
+header::before {
+  content: "";
+  display: block;
+  background-image: url(../static/477e16293f9ee3e6b5e191918937488d.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: -6px;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  /* 核心 Z轴向远处运动1px，大小缩小1倍，使用scale放大到原图大小 */
+  transform: translateZ(-1px) scale(2);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: #222f3e;
+}
+
+article {
+  width: 90vw;
+  max-width: 960px;
+  padding: 6em 0;
+  color: white;
+  font-size: 18px;
+  text-align: justify;
+  letter-spacing: 0.075em;
+  text-indent: 2em;
+  line-height: 1.8em;
+}
+/* 屏幕适配 */
+@media screen and (max-width: 1024px) {
+  header h1 {
+    font-size: 2.5em;
+    padding: 1em 1.5em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: 1.5em;
+    padding: 1em;
+  }
+
+  article {
+    font-size: 1em;
+  }
+}
