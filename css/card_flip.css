@@ -1,0 +1,105 @@
+html,
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1e272e;
+  min-width: 375px;
+}
+
+main {
+  background: url(../static/d612be9b1274b60344df093cd5891b91.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.row {
+  display: flex;
+  /* 应用粉笔特效图案 */
+  /* filter: url(#chalk); */
+}
+.pro-card-wrapper {
+  /* 开启3D空间 */
+  perspective: 300px;
+}
+
+.pro-card {
+  /* 基础布局 */
+  width: 180px;
+  height: 180px;
+  margin: 4px;
+  font-size: 48px;
+  position: relative;
+  text-align: center;
+
+  /* 翻转特效时间 */
+  transition: transform 0.8s;
+
+  /* 保留3D空间 */
+  transform-style: preserve-3d;
+}
+
+/* 假名 */
+.hiragana,
+.katakana {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  border: 1px solid #d2dae2;
+  color: white;
+}
+/* 翻转卡片 */
+
+.katakana {
+  transform: rotateY(180deg);
+}
+
+.pro-card-wrapper:hover .pro-card {
+  transform: rotateY(180deg);
+}
+
+/* 屏幕适配 */
+@media screen and (max-width: 960px) {
+  .pro-card {
+    width: 120px;
+    height: 120px;
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 660px) {
+  .pro-card {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+  }
+  /* 屏幕小于660px 特效影响阅读 取消 */
+  .row{
+    filter: none;
+  }
+  .hiragana,.katakana{
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media screen and (max-width:460px){
+  .pro-card{
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+  }
+}
+
